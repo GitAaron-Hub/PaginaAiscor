@@ -1,18 +1,32 @@
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(8.5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+   animation: entrada 2s ease-in-out;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
+ 
 }
 
 .container {
@@ -69,14 +83,14 @@ body {
   cursor: pointer;
 }
 
-/* HERO */
+
 .hero {
   background: linear-gradient(135deg, #1a1a1a 0%, #0066cc 100%);
   color: white;
   padding: 100px 20px;
   text-align: center;
   width: 100%;
-  min-height: 400px;
+  min-height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,12 +103,12 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin-bottom: 2rem;
 }
 
@@ -102,7 +116,7 @@ body {
   display: inline-block;
   background: #0066cc;
   color: white;
-  padding: 12px 30px;
+  padding: 16px 34px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
@@ -129,7 +143,7 @@ body {
   color: white;
 }
 
-/* SECCIONES */
+
 section {
   padding: 100px 20px 60px 20px;
   width: 100%;
@@ -143,7 +157,7 @@ section h2 {
   padding-top: 20px;
 }
 
-/* SERVICIOS */
+
 .servicios {
   background: #f9f9f9;
   width: 100%;
@@ -184,7 +198,7 @@ section h2 {
   color: #0066cc;
 }
 
-/* SOBRE NOSOTROS */
+
 .sobre-nosotros {
   width: 100%;
   background: white;
@@ -273,7 +287,21 @@ section h2 {
   text-align: center;
 }
 
-/* CONTACTO */
+.estatusActivo {
+ padding: 0 1rem;
+  color: #28a745 !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.estatusTerminado {
+ padding: 0 1rem;
+  color: #000000 !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+}
 .contacto {
   background: #f9f9f9;
   width: 100%;
