@@ -37,13 +37,15 @@ body {
 
 /* HEADER */
 .header {
-  background: #1a1a1a;
+  /* Semi-opaque header — no completamente transparente pero mantiene el efecto */
+  background: rgba(26, 26, 26, 0.9);
   color: white;
-  padding: 1rem 0;
+  padding: 0.6rem 0; /* ligeramente más pequeño */
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: background 0.25s, box-shadow 0.25s; /* evitar transiciones sobre padding/height */
 }
 
 .header .container {
@@ -58,6 +60,13 @@ body {
   color: #0066cc;
 }
 
+/* Reducir levemente el logo cuando está dentro del header para que la barra se vea más compacta */
+.header .logo h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
 .nav {
   display: flex;
   gap: 2rem;
@@ -68,10 +77,36 @@ body {
   color: white;
   text-decoration: none;
   transition: color 0.3s;
+  position: relative; /* necesario para la línea animada */
+  padding: 6px 0; /* mantiene altura consistente */
 }
 
 .nav a:hover {
   color: #0066cc;
+}
+
+/* Línea animada (underline) al pasar / focus - accesible y sutil */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: #0066cc;
+  border-radius: 2px;
+  transition: width 220ms ease;
+}
+.nav a:hover::after,
+.nav a:focus::after,
+.nav a:focus-visible::after {
+  width: 100%;
+}
+
+/* Enfoque visible para teclado sin cambiar tamaño */
+.nav a:focus-visible {
+  outline: 3px solid rgba(0,102,204,0.15);
+  outline-offset: 3px;
 }
 
 .hamburger {
@@ -90,7 +125,7 @@ body {
   padding: 100px 20px;
   text-align: center;
   width: 100%;
-  min-height: 650px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -452,4 +487,10 @@ section h2 {
   section h2 {
     font-size: 1.8rem;
   }
+}
+
+@media (max-width: 480px) {
+  section { padding: 60px 12px; }
+  .btn-primary { padding: 12px 20px; }
+  iframe { height: 200px; }
 }
