@@ -32,7 +32,7 @@ export default function Contacto() {
           <div className="info-contacto">
             <h3>Información de Contacto</h3>
             <p><strong>Teléfono (Oficina):</strong> (662) 458 38 26</p>
-            <p><strong>Teléfono (Salida):</strong> (662) 358 32 74</p>
+            <p><strong>Teléfono (Salida):</strong> (662) 368 32 74</p>
             <p><strong>Email:</strong> contacto@aiscoringenieros.com.mx</p>
             <p><strong>Dirección:</strong> Mazatlán No 631, Col. Libertad, CP 83130, Hermosillo, Sonora, México</p>
             
@@ -58,7 +58,9 @@ export default function Contacto() {
                 allowFullScreen
               ></iframe>
             </div>
+
           </div>
+
 
           <form onSubmit={handleSubmit} className="formulario">
             <input
@@ -96,6 +98,7 @@ export default function Contacto() {
               Enviar Mensaje
             </button>
           </form>
+      
         </div>
       </div>
     </section>

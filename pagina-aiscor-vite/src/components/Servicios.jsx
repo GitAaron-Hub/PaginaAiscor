@@ -1,17 +1,7 @@
 export default function Servicios() {
   const servicios = [
-    {
-      id: 1,
-      titulo: "Patios de lixiviación & Presas de jales",
-      descripcion: "Diseño y construcción de patios de lixiviación y presas de jales con controles de seguridad y gestión ambiental.",
-      icono: "🏭"
-    },
-    {
-      id: 2,
-      titulo: "Movimiento de tierras",
-      descripcion: "Excavación, traslado y compactación usando equipo especializado para proyectos de gran escala.",
-      icono: "🚜"
-    },
+  
+  
     {
       id: 3,
       titulo: "Producción de agregados (trituración y cribado)",
@@ -36,6 +26,22 @@ export default function Servicios() {
     <section id="servicios" className="servicios">
       <div className="container">
         <h2>Nuestros Servicios</h2>
+        <div className="servicios-visual">
+          <div className="hex hex-large" style={{ backgroundImage: "url('/images/pavimentación.png')" }}>
+            <span className="hex-caption">PAVIMENTACIÓN<br/>ASFÁLTICO & HIDRÁULICO</span>
+          </div>
+
+          <div className="hex-col">
+            <div className="hex hex-small" style={{ backgroundImage: "url('/images/Movimiento de tierras.png')" }}>
+              <span className="hex-caption">MOVIMIENTO<br/>DE TIERRAS</span>
+            </div>
+
+            <div className="hex hex-small" style={{ backgroundImage: "url('/images/Lixiviacion.png')" }}>
+              <span className="hex-caption">PATIO DE<br/>LIXIVIACIÓN</span>
+            </div>
+          </div>
+        </div>
+
         <div className="servicios-grid">
           {servicios.map(servicio => (
             <div key={servicio.id} className="servicio-card">
