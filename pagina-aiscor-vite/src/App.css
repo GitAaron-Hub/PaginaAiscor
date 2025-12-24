@@ -35,17 +35,17 @@ body {
   padding: 0 20px;
 }
 
-/* HEADER */
+
 .header {
-  /* Semi-opaque header — no completamente transparente pero mantiene el efecto */
-  background: rgba(26, 26, 26, 0.9);
+  
+  background: rgba(26, 26, 26, 0.92);
   color: white;
-  padding: 0.6rem 0; /* ligeramente más pequeño */
+  padding: 0.9rem 0; 
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-  transition: background 0.25s, box-shadow 0.25s; /* evitar transiciones sobre padding/height */
+  transition: background 0.25s, box-shadow 0.25s; 
 }
 
 .header .container {
@@ -60,7 +60,50 @@ body {
   color: #0066cc;
 }
 
-/* Reducir levemente el logo cuando está dentro del header para que la barra se vea más compacta */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 6px; 
+  overflow: visible;
+}
+.header-logo {
+  display: block;
+  height: 48px; 
+  width: auto;
+  transform: scale(3.0) translateY(7px); 
+  transform-origin: center center;
+  transition: transform 180ms ease;
+}
+
+/* Prevent global entrance animation from overriding header/logo transforms (avoids flash/sizing change on reload) */
+.header, .logo, .header-logo, .logo img {
+  animation: none !important;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .header-logo { height: 44px; transform: scale(1); }
+  .logo { padding: 0 4px; }
+}
+
+
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
 .header .logo h1 {
   font-size: 1.15rem;
   margin: 0;
@@ -69,23 +112,32 @@ body {
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.6rem; 
   align-items: center;
 }
 
-.nav a {
+.nav-link {
   color: white;
   text-decoration: none;
-  transition: color 0.3s;
-  position: relative; /* necesario para la línea animada */
-  padding: 6px 0; /* mantiene altura consistente */
+  transition: color 200ms ease, transform 140ms ease;
+  position: relative; 
+  padding: 8px 0; 
+  font-weight: 600; 
+  font-family: inherit;
 }
 
-.nav a:hover {
-  color: #0066cc;
+.nav-link:hover {
+  transform: translateY(-1px);
 }
 
-/* Línea animada (underline) al pasar / focus - accesible y sutil */
+
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--primary);
+}
+
+
 .nav a::after {
   content: "";
   position: absolute;
@@ -93,17 +145,18 @@ body {
   bottom: -6px;
   height: 3px;
   width: 0;
-  background: #0066cc;
+  background: var(--primary);
   border-radius: 2px;
   transition: width 220ms ease;
 }
-.nav a:hover::after,
-.nav a:focus::after,
-.nav a:focus-visible::after {
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
   width: 100%;
 }
 
-/* Enfoque visible para teclado sin cambiar tamaño */
+
 .nav a:focus-visible {
   outline: 3px solid rgba(0,102,204,0.15);
   outline-offset: 3px;
@@ -119,9 +172,47 @@ body {
 }
 
 
+.contact-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 180ms ease, transform 120ms ease, box-shadow 180ms ease;
+  font-weight: 700;
+}
+.contact-btn:hover,
+.contact-btn:focus {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+
+.contact-btn.active {
+  color: var(--white) !important;
+  background: var(--primary-dark);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  transform: translateY(-1px);
+}
+
+
+.nav-link:focus-visible, .contact-btn:focus-visible {
+  outline: 3px solid rgba(0,102,204,0.12);
+  outline-offset: 3px;
+}
+
+
 .hero {
-  background: linear-gradient(135deg, #1a1a1a 0%, #0066cc 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--primary) 100%);
+  color: var(--white);
   padding: 100px 20px;
   text-align: center;
   width: 100%;
@@ -130,6 +221,16 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.hero-content h1 { color: var(--white); }
+.hero-content p { color: rgba(255,255,255,0.9); }
+
+
+
+@media (max-width: 480px) {
+  .slogan { font-size: 0.9rem; }
+}
+
 
 .hero-content {
   max-width: 1200px;
@@ -149,18 +250,20 @@ body {
 
 .btn-primary {
   display: inline-block;
-  background: #0066cc;
-  color: white;
-  padding: 16px 34px;
-  border-radius: 5px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+  font-weight: 700;
+  transition: background 0.25s, transform 0.12s;
 }
 
 .btn-primary:hover {
-  background: #0052a3;
+  background: var(--primary-dark);
+  transform: translateY(-1px);
 }
+
 
 .btn-secundario {
   display: inline-block;
@@ -180,7 +283,8 @@ body {
 
 
 section {
-  padding: 100px 20px 60px 20px;
+  /* reduce top padding so anchored sections don't show a large gap */
+  padding: 72px 20px 48px 20px;
   width: 100%;
 }
 
@@ -189,7 +293,7 @@ section h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: #1a1a1a;
-  padding-top: 20px;
+  padding-top: 0; /* remove extra padding that pushed content down */
 }
 
 
@@ -230,7 +334,7 @@ section h2 {
 
 .servicio-card h3 {
   margin-bottom: 1rem;
-  color: #0066cc;
+  color: var(--primary);
 }
 
 
@@ -261,7 +365,7 @@ section h2 {
   line-height: 1.8;
 }
 
-/* PROYECTOS */
+
 .proyectos {
   width: 100%;
   background: white;
@@ -279,6 +383,84 @@ section h2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
+
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+
+.grid-2 div p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  line-height: 1.75;
+}
+
+.sobre-content { display: grid; gap: 1.75rem; }
+.sobre-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.sobre-row .sobre-img img {
+  width: 100%;
+  max-width: 480px; /* mayor tamaño por defecto */
+  height: auto;
+  aspect-ratio: 16 / 10; /* mantiene proporción agradable */
+  border: 8px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  object-fit: cover;
+  display: block;
+}
+
+/* pantallas muy grandes: permitir imágenes más amplias */
+@media (min-width: 1100px) {
+  .sobre-row .sobre-img img { max-width: 520px; }
+}
+
+/* en móviles ya se apilan y ocupan todo el ancho */
+@media (max-width: 900px) {
+  .sobre-row .sobre-img img { max-width: 100%; aspect-ratio: auto; }
+}
+.sobre-row .sobre-text h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.sobre-row .sobre-text .dot {
+  color: var(--primary);
+  margin-right: 0.55rem;
+  font-size: 1.1rem;
+}
+.sobre-row .sobre-text p {
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.75;
+}
+
+@media (max-width: 900px) {
+  .sobre-row { grid-template-columns: 1fr; }
+  .sobre-row .sobre-img img { max-width: 100%; height: auto; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+.sobre-imagenes { display: flex; gap: 1rem; margin-top: 1rem; }
+.sobre-imagenes img { width: 100%; max-width: 360px; border-radius: 8px; object-fit: cover; }
+
+.map-responsive { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.map-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
 
 .proyecto-card {
   background: white;
@@ -425,7 +607,7 @@ section h2 {
 }
 
 .footer-section h4 {
-  color: #0066cc;
+  color: var(--primary);
   margin-bottom: 1rem;
 }
 
@@ -480,6 +662,10 @@ section h2 {
     font-size: 2rem;
   }
 
+  .logo img {
+    height: 32px; /* logo un poco más pequeño en pantallas pequeñas */
+  }
+
   .contacto-grid {
     grid-template-columns: 1fr;
   }
@@ -493,4 +679,17 @@ section h2 {
   section { padding: 60px 12px; }
   .btn-primary { padding: 12px 20px; }
   iframe { height: 200px; }
+}
+
+.map-responsive {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+}
+.map-responsive iframe {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%; border: 0;
+  border-radius: 8px;
 }

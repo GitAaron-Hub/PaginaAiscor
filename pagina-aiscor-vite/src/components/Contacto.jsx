@@ -31,10 +31,16 @@ export default function Contacto() {
         <div className="contacto-grid">
           <div className="info-contacto">
             <h3>Información de Contacto</h3>
-            <p><strong>Teléfono:</strong> +56 9 XXXX XXXX</p>
-            <p><strong>Email:</strong> contacto@aiscor.cl</p>
-            <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, País</p>
+            <p><strong>Teléfono (Oficina):</strong> (662) 458 38 26</p>
+            <p><strong>Teléfono (Salida):</strong> (662) 358 32 74</p>
+            <p><strong>Email:</strong> contacto@aiscoringenieros.com.mx</p>
+            <p><strong>Dirección:</strong> Mazatlán No 631, Col. Libertad, CP 83130, Hermosillo, Sonora, México</p>
             
+            <h4>Descargar</h4>
+            <p>
+              <a className="btn-secundario" href="/curriculum.pdf" target="_blank" rel="noopener noreferrer">Descargar Curriculum (PDF)</a>
+            </p>
+
             <h4>Síguenos en Redes Sociales</h4>
             <div className="redes-sociales">
               <a href="#facebook">Facebook</a>
@@ -43,12 +49,15 @@ export default function Contacto() {
               <a href="#youtube">YouTube</a>
             </div>
 
-            <iframe 
-              width="100%" 
-              height="300" 
-              src="https://maps.google.com/maps?q=tu+ubicacion&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              style={{marginTop: '20px', borderRadius: '8px'}}
-            ></iframe>
+            <div className="map-responsive" style={{ marginTop: '20px' }}>
+              <iframe
+                src="https://maps.google.com/maps?q=Mazatl%C3%A1n%20631%20Col.%20Libertad%2C%20Hermosillo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                title="Ubicación AISCOR"
+                frameBorder="0"
+                style={{ border: 0, width: '100%', height: '100%', borderRadius: 8 }}
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="formulario">
