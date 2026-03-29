@@ -8,21 +8,24 @@ export default function Proyectos() {
       titulo: "Carretera Principal - Región X",
       categoria: "Carreteras",
       imagen: "/images/proyecto1.jpg",
-      descripcion: "Construcción de 50km de carretera de doble calzada"
+      descripcion: "Construcción de 50km de carretera de doble calzada",
+      estatusActivo: "Activo"
     },
     {
       id: 2,
       titulo: "Presa Hidroeléctrica",
       categoria: "Presas",
       imagen: "/images/proyecto2.jpg",
-      descripcion: "Construcción de presa con capacidad de 100 millones de m³"
+      descripcion: "Construcción de presa con capacidad de 100 millones de m³",
+      estatusTerminado: "Terminado"
     },
     {
       id: 3,
-      titulo: "Movimiento de Tierra - Proyecto Minero",
+      titulo: "Movimiento de Tierra",
       categoria: "Movimientos",
       imagen: "/images/proyecto3.jpg",
-      descripcion: "Excavación de 5 millones de toneladas de material"
+      descripcion: "Excavación de 5 millones de toneladas de material",
+      estatusActivo: "Activo"
     }
   ]);
 
@@ -38,8 +41,11 @@ export default function Proyectos() {
               <p className="categoria">{proyecto.categoria}</p>
               <p>{proyecto.descripcion}</p>
               <Link to={`/proyecto/${proyecto.id}`} className="btn-secundario">
-                Ver Detalles
+                Ver Proyecto
               </Link>
+              <div className='estatus-container'>
+              <p className='estatusActivo'>{proyecto.estatusActivo}</p>
+              <p className='estatusTerminado'>{proyecto.estatusTerminado}</p></div>
             </div>
           ))}
         </div>

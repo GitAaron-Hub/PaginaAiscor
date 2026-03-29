@@ -1,7 +1,20 @@
+@keyframes mover-arriba {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4.5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  animation:  mover-arriba 2.5s ease-in-out;
 }
 
 html {
@@ -21,7 +34,7 @@ body {
   padding: 0 20px;
 }
 
-/* HEADER */
+
 .header {
   background: #1a1a1a;
   color: white;
@@ -69,14 +82,14 @@ body {
   cursor: pointer;
 }
 
-/* HERO */
+
 .hero {
   background: linear-gradient(135deg, #1a1a1a 0%, #0066cc 100%);
   color: white;
   padding: 100px 20px;
   text-align: center;
   width: 100%;
-  min-height: 400px;
+  min-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,12 +102,12 @@ body {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin-bottom: 2rem;
 }
 
@@ -102,7 +115,7 @@ body {
   display: inline-block;
   background: #0066cc;
   color: white;
-  padding: 12px 30px;
+  padding: 14px 32px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
@@ -129,7 +142,7 @@ body {
   color: white;
 }
 
-/* SECCIONES */
+
 section {
   padding: 100px 20px 60px 20px;
   width: 100%;
@@ -143,7 +156,7 @@ section h2 {
   padding-top: 20px;
 }
 
-/* SERVICIOS */
+
 .servicios {
   background: #f9f9f9;
   width: 100%;
@@ -273,7 +286,24 @@ section h2 {
   text-align: center;
 }
 
-/* CONTACTO */
+
+.proyecto-card .estatusTerminado {
+  padding: 0 1rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2d2934;
+  text-align: center;
+}
+
+.proyecto-card .estatusActivo {
+  padding: 0 1rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #19ba44;
+  text-align: center;
+}
+
+
 .contacto {
   background: #f9f9f9;
   width: 100%;

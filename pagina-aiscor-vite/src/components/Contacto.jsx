@@ -18,7 +18,7 @@ export default function Contacto() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí irá la lógica para enviar el formulario
+    
     console.log(formData);
     alert('Mensaje enviado. Nos contactaremos pronto');
     setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
@@ -42,13 +42,6 @@ export default function Contacto() {
               <a href="#linkedin">LinkedIn</a>
               <a href="#youtube">YouTube</a>
             </div>
-
-            <iframe 
-              width="100%" 
-              height="300" 
-              src="https://maps.google.com/maps?q=tu+ubicacion&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              style={{marginTop: '20px', borderRadius: '8px'}}
-            ></iframe>
           </div>
 
           <form onSubmit={handleSubmit} className="formulario">
