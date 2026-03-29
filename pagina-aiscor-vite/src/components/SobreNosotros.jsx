@@ -17,7 +17,7 @@ export default function SobreNosotros() {
               <img src="/images/mision.png" alt="Misión de AISCOR Ingenieros" loading="lazy" />
             </figure>
             <div className="sobre-text">
-              <h3><span className="dot">•</span> MISIÓN:</h3>
+              <h3>MISIÓN</h3>
               <p>
                 Brindar servicios de ingeniería, satisfaciendo las necesidades de nuestros grupos de interés
                 mediante la aplicación de altos estándares de control de calidad, desarrollo sustentable y
@@ -29,7 +29,7 @@ export default function SobreNosotros() {
 
           <div className="sobre-row img-right">
             <div className="sobre-text">
-              <h3><span className="dot">•</span> VISIÓN:</h3>
+              <h3>VISIÓN</h3>
               <p>
                 Ser una empresa líder en el ámbito de la ingeniería y la construcción, siendo un referente
                 en nuestra localidad por nuestro alto compromiso con nuestros clientes y nuestra comunidad.

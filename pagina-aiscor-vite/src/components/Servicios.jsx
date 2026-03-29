@@ -42,14 +42,18 @@ export default function Servicios() {
           </div>
         </div>
 
-        <div className="servicios-grid">
-          {servicios.map(servicio => (
-            <div key={servicio.id} className="servicio-card">
-              <div className="icono">{servicio.icono}</div>
-              <h3>{servicio.titulo}</h3>
-              <p>{servicio.descripcion}</p>
-            </div>
-          ))}
+        <div className="servicios-lista">
+          <ul>
+            {servicios.map(servicio => (
+              <li key={servicio.id} className="servicio-item">
+                <span className="icono">{servicio.icono}</span>
+                <div className="servicio-content">
+                  <h3>{servicio.titulo}</h3>
+                  <p>{servicio.descripcion}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
