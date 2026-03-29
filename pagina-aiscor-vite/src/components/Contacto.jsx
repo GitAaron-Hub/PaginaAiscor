@@ -31,10 +31,15 @@ export default function Contacto() {
         <div className="contacto-grid">
           <div className="info-contacto">
             <h3>Información de Contacto</h3>
-            <p><strong>Teléfono:</strong> +56 9 XXXX XXXX</p>
-            <p><strong>Email:</strong> contacto@aiscor.cl</p>
-            <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, País</p>
+            <p><strong>Teléfono:</strong> (662) 368 32 74</p>
+            <p><strong>Email:</strong> contacto@aiscoringenieros.com.mx</p>
+            <p><strong>Dirección:</strong>Col. Libertad, CP 83130, Hermosillo, Sonora, México</p>
             
+            <h4>Descargar</h4>
+            <p>
+              <a className="btn-secundario" href="/curriculum.pdf" target="_blank" rel="noopener noreferrer">Descargar Curriculum (PDF)</a>
+            </p>
+
             <h4>Síguenos en Redes Sociales</h4>
             <div className="redes-sociales">
               <a href="#facebook">Facebook</a>
@@ -42,7 +47,12 @@ export default function Contacto() {
               <a href="#linkedin">LinkedIn</a>
               <a href="#youtube">YouTube</a>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06f479b59b00775319f3810a7c292123c35d47ed
           </div>
+
 
           <form onSubmit={handleSubmit} className="formulario">
             <input
@@ -80,6 +90,7 @@ export default function Contacto() {
               Enviar Mensaje
             </button>
           </form>
+      
         </div>
       </div>
     </section>

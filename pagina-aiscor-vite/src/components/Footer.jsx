@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-section">
             <h4>AISCOR</h4>
-            <p>Expertos en construcción y obras civiles</p>
+            <p>Piensa, Analiza, Define y Ejecuta...</p>
           </div>
           <div className="footer-section">
             <h4>Enlaces</h4>
@@ -19,15 +19,15 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Redes Sociales</h4>
             <div className="redes">
-              <a href="#fb">f</a>
-              <a href="#ig">📷</a>
+              <a href="#fb">facebook</a>
+              <a href="#ig">Instagram</a>
               <a href="#in">in</a>
               <a href="#yt">▶</a>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 AISCOR Ingenieros. Todos los derechos reservados.</p>
+          <p>&copy; </p>
         </div>
       </div>
     </footer>

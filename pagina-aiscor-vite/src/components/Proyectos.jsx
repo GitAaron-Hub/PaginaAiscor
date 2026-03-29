@@ -43,9 +43,16 @@ export default function Proyectos() {
               <Link to={`/proyecto/${proyecto.id}`} className="btn-secundario">
                 Ver Proyecto
               </Link>
+<<<<<<< HEAD
               <div className='estatus-container'>
               <p className='estatusActivo'>{proyecto.estatusActivo}</p>
               <p className='estatusTerminado'>{proyecto.estatusTerminado}</p></div>
+=======
+              <div>
+              <p className='estatusActivo'>{proyecto.estatusActivo}</p>
+              <p className='estatusTerminado'>{proyecto.estatusTerminado}</p>
+              </div>
+>>>>>>> 06f479b59b00775319f3810a7c292123c35d47ed
             </div>
           ))}
         </div>

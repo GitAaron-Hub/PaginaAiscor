@@ -3,6 +3,15 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* Palette variables adapted from logo/curriculum */
+  --primary: #0077d6; /* main blue */
+  --primary-dark: #005ea6;
+  --accent: #023e5a;
+  --bg: #0b2740; /* deep blue used in hero */
+  --muted: #f9f9f9;
+  --text: #333333;
+  --white: #ffffff;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -24,7 +33,7 @@ body {
   width: 100%;
 }
 
-}
+
 
 h1 {
   font-size: 3.2em;
